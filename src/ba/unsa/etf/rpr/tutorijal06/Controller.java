@@ -12,6 +12,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 
 import java.awt.*;
+import java.util.Date;
+
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class Controller {
@@ -19,6 +22,10 @@ public class Controller {
     public TextField imeField;
     public TextField prezimeField;
     public TextField indeksField;
+    public TextField maticniField;
+    public DatePicker datumPicker;
+    boolean tacnoime=false, tacnoprezime=false, tacanindeks=false, tacanmaticni=false;
+
     public SimpleStringProperty ime;
     public ComboBox mjestorodjenja;
     ObservableList<String> mjesta= FXCollections.observableArrayList("Sarajevo","Zenica","Tuzla","Mostar","Banja Luka");
@@ -27,6 +34,7 @@ public class Controller {
     imeField= new TextField();
     prezimeField=new TextField();
     indeksField=new TextField();
+    maticniField=new TextField();
     }
 
     public void initialize() {
@@ -38,6 +46,7 @@ public class Controller {
                 if (validnoIme(n)) {
                     imeField.getStyleClass().removeAll("poljeneispravno");
                     imeField.getStyleClass().add("poljeispravno");
+                    tacnoime=true;
                 } else {
                     imeField.getStyleClass().removeAll("poljeispravno");
                     imeField.getStyleClass().add("poljeneispravno");
@@ -51,6 +60,7 @@ public class Controller {
                 if (validnoIme(n)) {
                     prezimeField.getStyleClass().removeAll("poljeneispravno");
                     prezimeField.getStyleClass().add("poljeispravno");
+                    tacnoprezime=true;
                 } else {
                     prezimeField.getStyleClass().removeAll("poljeispravno");
                     prezimeField.getStyleClass().add("poljeneispravno");
@@ -64,6 +74,7 @@ public class Controller {
                 if (validanIndeks(n)) {
                     indeksField.getStyleClass().removeAll("poljeneispravno");
                     indeksField.getStyleClass().add("poljeispravno");
+                    tacanindeks=true;
                 } else {
                     indeksField.getStyleClass().removeAll("poljeispravno");
                     indeksField.getStyleClass().add("poljeneispravno");
@@ -71,6 +82,20 @@ public class Controller {
             }
         });
 
+
+        maticniField.textProperty().addListener(new ChangeListener<String>() {
+
+            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
+                if (validanMaticni(n)) {
+                    maticniField.getStyleClass().removeAll("poljeneispravno");
+                    maticniField.getStyleClass().add("poljeispravno");
+                    tacanmaticni=true;
+                } else {
+                    maticniField.getStyleClass().removeAll("poljeispravno");
+                    maticniField.getStyleClass().add("poljeneispravno");
+                }
+            }
+        });
 
 
 
@@ -90,17 +115,24 @@ if(s.length()==5) {
     }catch(Exception e) {
         return false;
     }
+
     return true;
 }
 return false;
-
+}
+public boolean validanMaticni(String s) {
+        if(s.length()==13){
+            return true;
+        }
+        return false;
 }
 
 
+    public void potvrda(ActionEvent actionEvent) {
+        if(tacnoime && tacnoprezime && tacanmaticni&& tacanindeks) {
+            System.out.println(imeField.getText() + "\n" + prezimeField.getText() + "\n" + indeksField.getText() + "\n");
+            System.out.println(maticniField.getText() + "\n");
+        }
 
-
-
-
-
-
+    }
 }
