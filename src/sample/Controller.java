@@ -19,7 +19,6 @@ public class Controller {
 
     public Controller() { ime=new SimpleStringProperty("");
     imeField= new TextField();
-
     }
 
     public void initialize() {
