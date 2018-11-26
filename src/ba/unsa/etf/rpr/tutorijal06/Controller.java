@@ -17,12 +17,16 @@ import javafx.scene.control.TextField;
 public class Controller {
 
     public TextField imeField;
+    public TextField prezimeField;
+    public TextField indeksField;
     public SimpleStringProperty ime;
     public ComboBox mjestorodjenja;
     ObservableList<String> mjesta= FXCollections.observableArrayList("Sarajevo","Zenica","Tuzla","Mostar","Banja Luka");
 
     public Controller() { ime=new SimpleStringProperty("");
     imeField= new TextField();
+    prezimeField=new TextField();
+    indeksField=new TextField();
     }
 
     public void initialize() {
@@ -40,6 +44,36 @@ public class Controller {
                 }
             }
         });
+
+        prezimeField.textProperty().addListener(new ChangeListener<String>() {
+
+            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
+                if (validnoIme(n)) {
+                    prezimeField.getStyleClass().removeAll("poljeneispravno");
+                    prezimeField.getStyleClass().add("poljeispravno");
+                } else {
+                    prezimeField.getStyleClass().removeAll("poljeispravno");
+                    prezimeField.getStyleClass().add("poljeneispravno");
+                }
+            }
+        });
+
+        indeksField.textProperty().addListener(new ChangeListener<String>() {
+
+            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
+                if (validanIndeks(n)) {
+                    indeksField.getStyleClass().removeAll("poljeneispravno");
+                    indeksField.getStyleClass().add("poljeispravno");
+                } else {
+                    indeksField.getStyleClass().removeAll("poljeispravno");
+                    indeksField.getStyleClass().add("poljeneispravno");
+                }
+            }
+        });
+
+
+
+
     }
 
 
@@ -48,6 +82,21 @@ public class Controller {
         if(s.length()>0 && s.length()<20) return true;
 return false;
     }
+
+public boolean validanIndeks(String s){
+if(s.length()==5) {
+    try{
+        Integer.parseInt(s);
+    }catch(Exception e) {
+        return false;
+    }
+    return true;
+}
+return false;
+
+}
+
+
 
 
 
