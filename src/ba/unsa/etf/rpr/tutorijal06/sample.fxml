@@ -12,8 +12,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane hgap="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" vgap="4.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-  <columnConstraints>
+<?import java.net.URL?>
+<GridPane hgap="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" vgap="4.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.tutorijal06.Controller">
+    <stylesheets>
+        <URL value="@ispravnost.css" />
+    </stylesheets>
+
+    <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -38,8 +43,8 @@
         </rowConstraints>
          <children>
             <Label text="Osnovni Podaci" GridPane.columnSpan="2" />
-            <Label text="Ime" GridPane.rowIndex="1" />
-            <TextField id="imeField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label id="ime" text="Ime" GridPane.rowIndex="1" />
+            <TextField fx:id="imeField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Prezime" GridPane.rowIndex="2" />
             <TextField GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Label text="Broj indeksa" GridPane.rowIndex="3" />
@@ -127,7 +132,7 @@
                </toggleGroup>
             </RadioButton>
             <CheckBox mnemonicParsing="false" text="Specijalne boračke kategorije" GridPane.columnSpan="3" GridPane.rowIndex="5" />
-            <RadioButton mnemonicParsing="false" text="AE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <RadioButton mnemonicParsing="false" selected="true" text="AE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <toggleGroup>
                   <ToggleGroup fx:id="odsjek" />
                </toggleGroup>
@@ -135,14 +140,14 @@
             <RadioButton mnemonicParsing="false" text="EE" toggleGroup="$odsjek" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <RadioButton mnemonicParsing="false" text="RI" toggleGroup="$odsjek" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <RadioButton mnemonicParsing="false" text="TK" toggleGroup="$odsjek" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <RadioButton mnemonicParsing="false" text="1." GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <RadioButton mnemonicParsing="false" selected="true" text="1." GridPane.columnIndex="1" GridPane.rowIndex="2">
                <toggleGroup>
                   <ToggleGroup fx:id="godina" />
                </toggleGroup>
             </RadioButton>
             <RadioButton mnemonicParsing="false" text="2." toggleGroup="$godina" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <RadioButton mnemonicParsing="false" text="3." toggleGroup="$godina" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <RadioButton mnemonicParsing="false" text="BSc" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <RadioButton mnemonicParsing="false" selected="true" text="BSc" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <toggleGroup>
                   <ToggleGroup fx:id="ciklus" />
                </toggleGroup>
