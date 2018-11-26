@@ -60,6 +60,8 @@
          </padding>
          <children>
             <Label text="Detaljni lični podaci" GridPane.columnSpan="2" />
+            <Label text="JMBG" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>
