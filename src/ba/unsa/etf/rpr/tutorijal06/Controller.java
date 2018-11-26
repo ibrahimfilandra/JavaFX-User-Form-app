@@ -27,6 +27,10 @@ public class Controller {
     boolean tacnoime=false, tacnoprezime=false, tacanindeks=false, tacanmaticni=false;
 
     public SimpleStringProperty ime;
+    public SimpleStringProperty prezime;
+    public SimpleStringProperty indeks;
+    public SimpleStringProperty maticni;
+
     public ComboBox mjestorodjenja;
     ObservableList<String> mjesta= FXCollections.observableArrayList("Sarajevo","Zenica","Tuzla","Mostar","Banja Luka");
 
@@ -39,7 +43,10 @@ public class Controller {
 
     public void initialize() {
         mjestorodjenja.setItems(mjesta);
-
+        imeField.textProperty().bindBidirectional(ime);
+        prezimeField.textProperty().bindBidirectional(prezime);
+        indeksField.textProperty().bindBidirectional(indeks);
+        maticniField.textProperty().bindBidirectional(maticni);
         imeField.textProperty().addListener(new ChangeListener<String>() {
 
             public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
@@ -130,8 +137,8 @@ public boolean validanMaticni(String s) {
 
     public void potvrda(ActionEvent actionEvent) {
         if(tacnoime && tacnoprezime && tacanmaticni&& tacanindeks) {
-            System.out.println(imeField.getText() + "\n" + prezimeField.getText() + "\n" + indeksField.getText() + "\n");
-            System.out.println(maticniField.getText() + "\n");
+            System.out.println(ime.get() + "\n" + prezime.get() + "\n" + indeks.get()+ "\n");
+            System.out.println(maticni.get() + "\n");
         }
 
     }
