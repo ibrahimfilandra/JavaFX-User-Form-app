@@ -10,13 +10,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.Date;
 
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class Controller {
 
@@ -26,31 +26,40 @@ public class Controller {
     public TextField maticniField;
     public TextField emailField;
     public DatePicker datumPicker;
-    boolean tacnoime=false, tacnoprezime=false, tacanindeks=false, tacanmaticni=false;
+    boolean tacnoime=false, tacnoprezime=false, tacanindeks=false, tacanmaticni=false,tacanemail=false;
+
 
     public SimpleStringProperty ime;
     public SimpleStringProperty prezime;
     public SimpleStringProperty indeks;
     public SimpleStringProperty maticni;
     public SimpleStringProperty email;
-    LocalDate datum = datumPicker.getValue();
+
 
     public ComboBox mjestorodjenja;
     ObservableList<String> mjesta= FXCollections.observableArrayList("Sarajevo","Zenica","Tuzla","Mostar","Banja Luka");
 
     public Controller() { ime=new SimpleStringProperty("");
+    prezime=new SimpleStringProperty("");
+        indeks=new SimpleStringProperty("");
+        email=new SimpleStringProperty("");
+        maticni=new SimpleStringProperty("");
     imeField= new TextField();
     prezimeField=new TextField();
     indeksField=new TextField();
     maticniField=new TextField();
+    emailField= new TextField();
     }
+
 
     public void initialize() {
         mjestorodjenja.setItems(mjesta);
         imeField.textProperty().bindBidirectional(ime);
-        prezimeField.textProperty().bindBidirectional(prezime);
+      prezimeField.textProperty().bindBidirectional(prezime);
         indeksField.textProperty().bindBidirectional(indeks);
         maticniField.textProperty().bindBidirectional(maticni);
+        emailField.textProperty().bindBidirectional(email);
+
         imeField.textProperty().addListener(new ChangeListener<String>() {
 
             public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
@@ -108,8 +117,6 @@ public class Controller {
             }
         });
 
-
-
     }
 
 
@@ -146,4 +153,5 @@ public boolean validanMaticni(String s) {
         }
 
     }
+
 }

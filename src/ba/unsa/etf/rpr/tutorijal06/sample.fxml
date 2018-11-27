@@ -75,8 +75,8 @@
             <TextField fx:id="maticniField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Datum rođenja" GridPane.rowIndex="2" />
             <Label text="Mjesto rođenja" GridPane.rowIndex="3" />
-            <DatePicker fx:id="datumPicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox fx:id="mjestorodjenja" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker fx:id="datumPicker" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="mjestorodjenja" editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <GridPane hgap="4.0" vgap="4.0" GridPane.rowIndex="1">
