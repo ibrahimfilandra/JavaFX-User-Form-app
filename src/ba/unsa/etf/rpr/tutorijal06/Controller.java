@@ -117,6 +117,85 @@ public class Controller {
             }
         });
 
+      imeField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean o, Boolean n) {
+               if(!n){
+                   if (validnoIme(ime.get())) {
+                       imeField.getStyleClass().removeAll("poljeneispravno");
+                       imeField.getStyleClass().add("poljeispravno");
+                       tacnoime=true;
+                   } else {
+                       imeField.getStyleClass().removeAll("poljeispravno");
+                       imeField.getStyleClass().add("poljeneispravno");
+                   }
+
+               }
+
+            }
+        });
+
+        prezimeField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean o, Boolean n) {
+                if(!n){
+                    if (validnoIme(prezime.get())) {
+                        prezimeField.getStyleClass().removeAll("poljeneispravno");
+                        prezimeField.getStyleClass().add("poljeispravno");
+                        tacnoprezime=true;
+                    } else {
+                        prezimeField.getStyleClass().removeAll("poljeispravno");
+                        prezimeField.getStyleClass().add("poljeneispravno");
+                    }
+
+                }
+
+            }
+        });
+
+        indeksField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean o, Boolean n) {
+                if(!n){
+                    if (validanIndeks(indeks.get())) {
+                        indeksField.getStyleClass().removeAll("poljeneispravno");
+                        indeksField.getStyleClass().add("poljeispravno");
+                        tacanindeks=true;
+                    } else {
+                        indeksField.getStyleClass().removeAll("poljeispravno");
+                        indeksField.getStyleClass().add("poljeneispravno");
+                    }
+
+                }
+
+            }
+        });
+
+        maticniField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean o, Boolean n) {
+                if(!n){
+                    if (validanMaticni(maticni.get())) {
+                        maticniField.getStyleClass().removeAll("poljeneispravno");
+                        maticniField.getStyleClass().add("poljeispravno");
+                        tacanmaticni=true;
+                    } else {
+                        maticniField.getStyleClass().removeAll("poljeispravno");
+                        maticniField.getStyleClass().add("poljeneispravno");
+                    }
+
+                }
+
+            }
+        });
+
+
+
+
+
+
+
+
     }
 
 
