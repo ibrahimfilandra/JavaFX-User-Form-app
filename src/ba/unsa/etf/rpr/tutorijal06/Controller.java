@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 
 import java.awt.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javafx.scene.control.DatePicker;
@@ -23,6 +24,7 @@ public class Controller {
     public TextField prezimeField;
     public TextField indeksField;
     public TextField maticniField;
+    public TextField emailField;
     public DatePicker datumPicker;
     boolean tacnoime=false, tacnoprezime=false, tacanindeks=false, tacanmaticni=false;
 
@@ -30,6 +32,8 @@ public class Controller {
     public SimpleStringProperty prezime;
     public SimpleStringProperty indeks;
     public SimpleStringProperty maticni;
+    public SimpleStringProperty email;
+    LocalDate datum = datumPicker.getValue();
 
     public ComboBox mjestorodjenja;
     ObservableList<String> mjesta= FXCollections.observableArrayList("Sarajevo","Zenica","Tuzla","Mostar","Banja Luka");
