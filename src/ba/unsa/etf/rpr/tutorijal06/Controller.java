@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.tutorijal06;
 
 
-import com.sun.deploy.panel.TextFieldProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -219,7 +218,22 @@ return false;
 }
 public boolean validanMaticni(String s) {
         if(s.length()==13){
-            return true;
+            int A=s.charAt(0), B=s.charAt(2), C=s.charAt(2), D=s.charAt(3), E=s.charAt(4), F=s.charAt(5), G=s.charAt(6), H=s.charAt(7), I=s.charAt(8) ;
+            int J=s.charAt(9), K=s.charAt(10),L=s.charAt(11);
+
+            int zadnja = 11 - (( 7*(A+G) + 6*(C+H) + 5*(D+I) + 4*(D+J) + 3*(E+K) + 2*(F+L) ) % 11);
+
+            if(zadnja<=9 && zadnja>=1) {
+                if (zadnja == s.charAt(12)-48)
+                    return true;
+                else return false;
+            }
+            else {
+                if(s.charAt(12)-48==0) return true;
+                return false;
+            }
+
+
         }
         return false;
 }
